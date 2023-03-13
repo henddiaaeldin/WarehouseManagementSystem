@@ -1,5 +1,6 @@
 package com.developer.warehousemanagement;
 
+import jakarta.persistence.PersistenceContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import jakarta.persistence.EntityManager;
@@ -15,9 +16,9 @@ import java.util.Properties;
 public class WarehouseManagementApplication {
 
 	public static void main(String[] args) throws SQLException {
+
 		SpringApplication.run(WarehouseManagementApplication.class, args);
-		//EntityManagerFactory emf= Persistence.createEntityManagerFactory("Warehouse");
-		//EntityManager em=emf.createEntityManager();
+
 
 
 	}

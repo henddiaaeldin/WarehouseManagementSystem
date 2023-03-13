@@ -1,81 +1,31 @@
 package com.developer.warehousemanagement.Entity;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "Admittance")
-public class Advice {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Admittance Id")
-    private Long id;
-    @Column(name = "Admittance Date")
+@Table(name = "admittance")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class Advice extends BaseEntity {
+
+    @Column(name = "admittance_date")
     private Date date;
     @OneToOne
-    @JoinColumn(name = "Customer ID")
+    @JoinColumn(name = "supplier_id")
     private Supplier supplier;
-    @ElementCollection
-    @CollectionTable(
-            name="Products",
-            joinColumns=@JoinColumn(name="SKU ID")
-    )
+
+    @OneToMany
+    @JoinColumn(name = "sku_id")
     private List<SKU> products=new ArrayList<SKU>();
 
-    @Column(name = "Admittance Quantity")
+    @Column(name = "quantity")
     private int quantity;
 
-    public Advice() {
-    }
-
-    public Advice(Long id, Date date, Supplier supplier, List<SKU> products, int quantity) {
-        this.id = id;
-        this.date = date;
-        this.supplier = supplier;
-        this.products = products;
-        this.quantity = quantity;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public Supplier getSupplier() {
-        return supplier;
-    }
-
-    public void setSupplier(Supplier supplier) {
-        this.supplier = supplier;
-    }
-
-    public List<SKU> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<SKU> products) {
-        this.products = products;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
 }

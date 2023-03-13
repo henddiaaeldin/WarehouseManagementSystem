@@ -1,62 +1,28 @@
 package com.developer.warehousemanagement.Entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "Supplier")
-public class Supplier {
-    @Id
-    @Column(name = "Supplier ID")
-    private Long id;
-    @Column(name = "Supplier Name")
+@Table(name = "suppliers")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class Supplier extends BaseEntity {
+    @Column(name = "name")
     private String name;
-    @Column(name = "Supplier Number")
+    @Column(name = "number")
     private int number;
-    @Column(name = "Supplier address")
-    private String address;
+    @OneToMany
+    @JoinColumn(name = "address_id")
+    private List<Address> addresses=new ArrayList<Address>();
 
-    public Supplier() {
-    }
 
-    public Supplier(Long id, String name, int number, String address) {
-        this.id = id;
-        this.name = name;
-        this.number = number;
-        this.address = address;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 }

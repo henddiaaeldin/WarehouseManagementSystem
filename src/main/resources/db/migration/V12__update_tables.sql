@@ -1,0 +1,43 @@
+ALTER TABLE loadunits
+ADD COLUMN created_on TIMESTAMP,
+ADD COLUMN updated_on TIMESTAMP;
+
+ALTER TABLE suppliers
+ADD COLUMN created_on TIMESTAMP,
+ADD COLUMN updated_on TIMESTAMP;
+
+ALTER TABLE admittances
+ADD COLUMN created_on TIMESTAMP,
+ADD COLUMN updated_on TIMESTAMP;
+
+ALTER TABLE skus
+ADD COLUMN created_on TIMESTAMP,
+ADD COLUMN updated_on TIMESTAMP;
+
+ALTER TABLE loadunitstorage
+ADD COLUMN created_on TIMESTAMP,
+ADD COLUMN updated_on TIMESTAMP;
+
+ALTER TABLE inventory
+ADD COLUMN created_on TIMESTAMP,
+ADD COLUMN updated_on TIMESTAMP;
+
+ALTER TABLE stock
+ADD COLUMN created_on TIMESTAMP,
+ADD COLUMN updated_on TIMESTAMP;
+
+ALTER TABLE customers
+ADD COLUMN created_on TIMESTAMP,
+ADD COLUMN updated_on TIMESTAMP;
+
+ALTER TABLE orders
+ADD COLUMN created_on TIMESTAMP,
+ADD COLUMN updated_on TIMESTAMP;
+
+ALTER TABLE order_items
+ADD COLUMN created_on TIMESTAMP,
+ADD COLUMN updated_on TIMESTAMP;
+
+ALTER TABLE addresses
+ADD COLUMN created_on TIMESTAMP,
+ADD COLUMN updated_on TIMESTAMP;

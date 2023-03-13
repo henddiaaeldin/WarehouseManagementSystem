@@ -1,38 +1,23 @@
 package com.developer.warehousemanagement.Entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Embeddable
-@Table(name = "Order Items")
-public class OrderItem {
-
-@ManyToOne
-@JoinColumn(name = "SKU Id")
-private SKU sku;
-@Column(name = "Item Quantity")
-private int quantity;
-
-    public SKU getSku() {
-        return sku;
-    }
-
-    public void setSku(SKU sku) {
-        this.sku = sku;
-    }
-
-    public OrderItem() {
-    }
-
-    public OrderItem(SKU sku, int quantity) {
-        this.sku = sku;
-        this.quantity = quantity;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
+@Entity
+@Table(name = "order_items")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class OrderItem extends BaseEntity {
+    @OneToOne
+    @JoinColumn(name = "sku_id")
+    private SKU sku;
+    private int quantity;
 }

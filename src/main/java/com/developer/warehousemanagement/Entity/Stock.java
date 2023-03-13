@@ -1,37 +1,23 @@
 package com.developer.warehousemanagement.Entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Embeddable
-@Table(name = "Stock")
-public class Stock {
+@Entity
+@Table(name = "stock")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class Stock extends BaseEntity {
     @ManyToOne
-    @JoinColumn(name = "SKU Id")
+    @JoinColumn(name = "sku_id")
     private SKU sku;
-    @Column(name = "Item Quantity")
+    @Column(name = "item_quantity")
     private int quantity;
 
-    public SKU getSku() {
-        return sku;
-    }
 
-    public void setSku(SKU sku) {
-        this.sku = sku;
-    }
-
-    public Stock() {
-    }
-
-    public Stock(SKU sku, int quantity) {
-        this.sku = sku;
-        this.quantity = quantity;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
 }
